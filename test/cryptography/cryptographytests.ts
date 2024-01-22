@@ -9,9 +9,9 @@ import {
     createNewPrivateKeyFromPemInput, 
     createNewPublicKeyFromPemInput, 
     SHA512_SignatureManager,
-    SHA512_HashManager
+    SHA512_HashManager,
+    randomBytes
 } from '../../src/cryptography/cryptography.js';
-import { randomBytes } from 'crypto';
 import { privateKey, publicKey } from './cryptographytesthelpers.js';
 
 describe('AES256_EncryptionManager', () => {

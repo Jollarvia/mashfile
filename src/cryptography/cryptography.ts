@@ -22,7 +22,7 @@ import {
     KeyObject,
     generateKeyPair
 } from 'crypto'
-
+export { randomBytes } from 'crypto';
 export const errorHashRequired = "mashfile.hash required to decrypt"
 export const errorIdRequired = "mashfile.id required"
 
