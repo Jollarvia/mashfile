@@ -1,0 +1,6 @@
+.aider*
+.vscode
+dist/
+coverage/
+node_modules/
+resolution.txt

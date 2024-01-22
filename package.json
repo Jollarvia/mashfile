@@ -1,0 +1,46 @@
+{
+  "type": "module",
+  "name": "mashfile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "test": "mocha --require ts-node/register 'test/configuration/optionstest.ts'",
+    "test2": "mocha 'dist/test/**/*.js'",
+    "build-test": "npm run build && npm run test2",
+    "build": "npm run clean && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "publish": "npm run clean && tsc --project tsconfig.publish.json && tsc-alias -p tsconfig.json",
+    "traceResolution": "npm run clean && tsc --traceResolution --project tsconfig.json > resolution.txt && tsc-alias -p tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fireproof/core": "^0.16.1",
+    "@helia/dag-cbor": "^1.0.3",
+    "@helia/dag-json": "^1.0.3",
+    "@helia/json": "^1.0.3",
+    "@helia/mfs": "^1.0.2",
+    "@helia/strings": "^1.0.1",
+    "@helia/unixfs": "^1.4.2",
+    "@ipld/dag-cbor": "^9.0.7",
+    "@ipld/dag-json": "^10.1.6",
+    "@ipld/dag-pb": "^4.0.7",
+    "graphology": "^0.25.4",
+    "graphology-dag": "^0.4.1",
+    "helia": "^2.0.3",
+    "multiformats": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "@types/sinon": "^17.0.2",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "rimraf": "^5.0.5",
+    "sinon": "^17.0.1",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.8",
+    "typescript": "^5.3.3"
+  }
+}
