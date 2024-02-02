@@ -5,13 +5,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf tsc && rimraf dist",
     "test": "mocha --require ts-node/register 'test/configuration/optionstest.ts'",
-    "test2": "mocha 'dist/test/**/*.js'",
+    "test2": "mocha 'tsc/test/**/*.js'",
     "build-test": "npm run build && npm run test2",
     "build": "npm run clean && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "publish": "npm run clean && tsc --project tsconfig.publish.json && tsc-alias -p tsconfig.json",
-    "traceResolution": "npm run clean && tsc --traceResolution --project tsconfig.json > resolution.txt && tsc-alias -p tsconfig.json"
+    "traceResolution": "npm run clean && tsc --traceResolution --project tsconfig.json > resolution.txt && tsc-alias -p tsconfig.json",
+    "build-browser": "npm run build && rollup -c rollup.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -32,12 +33,18 @@
     "multiformats": "^13.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
     "@types/sinon": "^17.0.2",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
     "rimraf": "^5.0.5",
+    "rollup": "^4.9.6",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
     "sinon": "^17.0.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "^1.8.8",

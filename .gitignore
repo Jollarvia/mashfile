@@ -1,6 +1,8 @@
 .aider*
 .vscode
+.rollup*
 dist/
 coverage/
 node_modules/
 resolution.txt
+tsc/
